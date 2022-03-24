@@ -5,6 +5,20 @@ var botonAlerta = document.getElementById('boton-alerta');
 var panelPrincipal = document.getElementById('panel-principal');
 var insertarParrafo = true;
 var tiposAlerta = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+var temaCss = document.getElementById('temaCSS')
+var botonTema = document.getElementById('boton-tema');
+
+function cambiarTema(){
+    console.log('cambiar color tema');
+
+    var href = temaCss.getAttribute('href');
+    if(href === 'tema_oscuro.css'){
+        temaCss.setAttribute('href','tema_claro.css');
+    } else {
+        temaCss.setAttribute('href','tema_oscuro.css');
+    }
+}
+
 
 /**
  *  Funcion obtenida con ayuda de la doc de Bootstrap.
@@ -26,16 +40,20 @@ function alert(mensaje, tipoAlerta) {
     if (insertarParrafo) {
         // cremos elemento p
         var parrafo1 = document.createElement('p');
-        var parrafo2 = document.createElement('p');    
+        var parrafo2 = document.createElement('p');   
+        var parrafo3 = document.createElement('p');
         // añadimos una clase a los parrafos
         parrafo1.className = 'parrafo-dinamico';
+        parrafo2.className = 'parrafo-dinamico';
         parrafo2.className = 'parrafo-dinamico';
         // insertamos texto a los parrafos
         parrafo1.innerText ='primer parrafo';
         parrafo2.innerText = 'segundo parrafo';
+        parrafo3.innerText = 'tercer parrafo'
         // añadimos los parrafos al div: panel-principal
         panelPrincipal.append(parrafo1);
         panelPrincipal.append(parrafo2);
+        panelPrincipal.append(parrafo3)
         // marcamos a false la variable para que la proxima vez nos borre los parrafos 
         insertarParrafo = false;
     } else {
@@ -75,4 +93,12 @@ if (botonAlerta) {
       'click', // tipo de evento
       function () {alert('has presionado el botón', alertaAleatoria())} // funcion que ejecutamos
     );
+}
+
+if (botonTema) {
+    botonTema.addEventListener(
+        'click',
+        function(){cambiarTema()}
+    )
+
 }

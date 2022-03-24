@@ -1,19 +1,19 @@
 header {
-    background: #3e3d3d;
+    /* background: #3e3d3d; */
     border: 3px solid black;
-    color: white;
+   /*  color: white; */
     padding: 1.25rem;
     margin-bottom: 10px;
 }
 
 nav{
-    background-color: #00800042;
+    /* background-color: #00800042; */
 }
 
 #panel-principal{
     width: 100%;
     min-height: 500px;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
 
