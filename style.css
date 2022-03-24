@@ -13,8 +13,16 @@ nav{
 #panel-principal{
     width: 100%;
     min-height: 500px;
+   
     /* background-color: antiquewhite; */
 }
+
+.ppfont{
+
+    font-family: Arial;
+    font-size: 30px;
+}
+
 
 
 

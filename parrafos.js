@@ -7,15 +7,18 @@ var insertarParrafo = true;
 var tiposAlerta = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
 var temaCss = document.getElementById('temaCSS')
 var botonTema = document.getElementById('boton-tema');
+var botonFont = document.getElementById('boton-font');
 
 function cambiarTema(){
-    console.log('cambiar color tema');
-
     var href = temaCss.getAttribute('href');
     if(href === 'tema_oscuro.css'){
         temaCss.setAttribute('href','tema_claro.css');
+        botonTema.innerText='Tema Oscuro';
+        alert('Has cambiado a tema claro.', 'success');
     } else {
         temaCss.setAttribute('href','tema_oscuro.css');
+        botonTema.innerText='Tema Claro';
+        alert('Has cambiado a tema oscuro.', 'success');
     }
 }
 
@@ -35,70 +38,19 @@ function alert(mensaje, tipoAlerta) {
     alerta.innerHTML = '<div class="alert alert-' + tipoAlerta + ' alert-dismissible" role="alert">' + mensaje + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
     // Añadimos el elemento div al panel de alertas
     panelAlerta.append(alerta);
-  
-    // variable que nos permite controlar si debemos insertar o borrar los elementos.
-    if (insertarParrafo) {
-        // cremos elemento p
-        var parrafo1 = document.createElement('p');
-        var parrafo2 = document.createElement('p');   
-        var parrafo3 = document.createElement('p');
-        // añadimos una clase a los parrafos
-        parrafo1.className = 'parrafo-dinamico';
-        parrafo2.className = 'parrafo-dinamico';
-        parrafo2.className = 'parrafo-dinamico';
-        // insertamos texto a los parrafos
-        parrafo1.innerText ='primer parrafo';
-        parrafo2.innerText = 'segundo parrafo';
-        parrafo3.innerText = 'tercer parrafo'
-        // añadimos los parrafos al div: panel-principal
-        panelPrincipal.append(parrafo1);
-        panelPrincipal.append(parrafo2);
-        panelPrincipal.append(parrafo3)
-        // marcamos a false la variable para que la proxima vez nos borre los parrafos 
-        insertarParrafo = false;
-    } else {
-            // usamos querySelectorAll para obtener todos los elementos con class="alert"
-            var alerts = document.querySelectorAll('.alert');
-            // usamos querySelectorAll para obtener todos los elementos con class="parrafo-dinamico"
-            var parrafos = document.querySelectorAll('.parrafo-dinamico');
 
-            // recorremos y eliminamos todos los parrafos -> p.parrafo-dinamico
-            parrafos.forEach(element => {
-                element.remove();
-            });
-
-            // recorremos y eliminamos todas las alertas -> div.alert
-            alerts.forEach(element => {
-                element.remove();
-            });
-
-            // marcamos a true la variable para que la proxima vez nos cree los parrafos y la alerta
-            insertarParrafo = true;
-    }
+    setTimeout(
+        () => {
+            alerta.remove();
+        }, 5000
+    )
 }
 
-function alertaAleatoria() {
-    // calculamos un número aleatorio entre 1 y la longitud del array alertas
-    var random = Math.round(Math.random()*tiposAlerta.length - 1) + 1;
-    // obtenemos una alerta de forma aleatoria
-    //return tiposAlerta[random];
-    return 'primary';
+function cambiarStyle(){
+
 }
 
 //añadir eventos aqui!!
-// comprobamos si existe alerta antes de añadir el evento
-if (botonAlerta) {
-    // añadimos un evento al boton alerta
-    botonAlerta.addEventListener(
-      'click', // tipo de evento
-      function () {alert('has presionado el botón', alertaAleatoria())} // funcion que ejecutamos
-    );
-}
-
-if (botonTema) {
-    botonTema.addEventListener(
-        'click',
-        function(){cambiarTema()}
-    )
-
-}
+    botonAlerta.addEventListener('click',function () {alert('has presionado el botón', 'primary');});
+    botonTema.addEventListener('click', function(){cambiarTema();});
+    botonFont.addEventListener('click', function(){cambiarStyle();});
