@@ -17,12 +17,17 @@ nav{
     /* background-color: antiquewhite; */
 }
 
-.ppfont{
-
+.arial{
     font-family: Arial;
     font-size: 30px;
+    align-self: center;
 }
 
+.times{
+    font-family: Times;
+    font-size: 40px;
+    align-self: baseline;
+}
 
 
 

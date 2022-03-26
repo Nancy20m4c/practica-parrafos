@@ -1,7 +1,6 @@
 
 /* DECLARAMOS VARIABLES DE ELEMENTOS HTML */
 var panelAlerta = document.getElementById('panel-alerta');
-var botonAlerta = document.getElementById('boton-alerta');
 var panelPrincipal = document.getElementById('panel-principal');
 var insertarParrafo = true;
 var tiposAlerta = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
@@ -47,10 +46,20 @@ function alert(mensaje, tipoAlerta) {
 }
 
 function cambiarStyle(){
+    var clase = panelPrincipal.getAttribute('class');
+    if(clase === 'arial'){
+        panelPrincipal.setAttribute('class','times');
+        botonFont.innerText='Fuente arial';
+        alert('Has cambiado de fuente', 'danger');
+    } else {
+        panelPrincipal.setAttribute('class','arial');
+        botonFont.innerText='Fuente Times';
+        alert('Has cambiado de fuente', 'danger');
+        
+    }
 
 }
 
 //añadir eventos aqui!!
-    botonAlerta.addEventListener('click',function () {alert('has presionado el botón', 'primary');});
     botonTema.addEventListener('click', function(){cambiarTema();});
     botonFont.addEventListener('click', function(){cambiarStyle();});
