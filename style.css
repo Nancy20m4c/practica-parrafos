@@ -6,29 +6,32 @@ header {
     margin-bottom: 10px;
 }
 
-nav{
-    /* background-color: #00800042; */
-}
-
 #panel-principal{
     width: 100%;
     min-height: 500px;
-   
-    /* background-color: antiquewhite; */
+
 }
 
 .arial{
     font-family: Arial;
     font-size: 30px;
-    align-self: center;
+    text-align: justify;
 }
 
 .times{
     font-family: Times;
     font-size: 40px;
-    align-self: baseline;
+    text-align: justify;
 }
 
+#p1{
+    margin: 10%;
+    width: 30%;
+    float: left;
+}
 
-
-
+#p2{
+    margin: 10%;
+    width: 30%;
+    float: left;
+}
