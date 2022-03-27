@@ -12,6 +12,13 @@ header {
 
 }
 
+#panel-alerta{
+    position: absolute;
+    right: 0;
+    width: 30%;
+    opacity: .8;
+}
+
 .arial{
     font-family: Arial;
     font-size: 30px;
