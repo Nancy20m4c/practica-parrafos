@@ -4,6 +4,11 @@ header {
    /*  color: white; */
     padding: 1.25rem;
     margin-bottom: 10px;
+    text-align: center;    
+}
+nav {
+
+    text-align:center;
 }
 
 #panel-principal{
